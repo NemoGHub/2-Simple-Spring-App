@@ -15,7 +15,7 @@ public class PostsViewController {
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String list(Model model) {
         model.addAttribute("appName", "Моё Спринг-приложение");
-        model.addAttribute("posts", postService.listAllPosts(3));
+        model.addAttribute("posts", postService.listAllPosts());
         return "list";
     }
 
@@ -23,5 +23,11 @@ public class PostsViewController {
     @RequestMapping(path = "/post/{id}", method = RequestMethod.GET)
     public String single(@PathVariable("id") Long id) {
         return "Здесь будет страница поста №" + id;
+    }
+
+    @RequestMapping(path = "/new", method = RequestMethod.GET)
+    public String create(Model model) {
+        model.addAttribute("appName", "Моё Спринг-приложение");
+        return "create";
     }
 }
