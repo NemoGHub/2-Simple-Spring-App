@@ -1,31 +1,35 @@
 package com.example.demo.model;
 
-import java.util.Calendar;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
+import java.io.Serializable;
 import java.util.Date;
 
-public class Post {
+
+@Entity
+public class Post implements Serializable {
+    @Id
+    @GeneratedValue
+    private Long id;
     private String text;
     private int likes;
     private Date creationDate;
-    private Long id;
 
-    public Post(Long id, String text){
+    public Post(Long id, String text, Date date) {
         this.id = id;
         this.text = text;
         this.likes = 0;
-        this.creationDate = new Date();
-    }
-    public Post(Long id, String text, Date creationDate){
-        this.id = id;
-        this.text = text;
-        this.likes = 0;
-        this.creationDate = creationDate;
+        this.creationDate = date;
     }
 
-    public Long getId() {return id;}
-    public String getText() {return text;}
+    public Post() {
+    }
+
     public int getLikes() {return likes;}
+    public void setLikes(Integer likes) {this.likes = likes;}
+    public String getText() {return text;}
     public Date getCreationDate() {return creationDate;}
-
-    public void setLikes(int likes){this.likes = likes;}
+    public Long getId() {return id;}
 }

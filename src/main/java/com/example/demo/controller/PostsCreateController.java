@@ -19,9 +19,9 @@ public class PostsCreateController {
         return "redirect:/";
     }
 
-    @RequestMapping(path = "/new_pack", method = RequestMethod.POST)
-    public String doCreate(@ModelAttribute("number") int number) {
-        postService.AddPosts(number);
-        return "redirect:/";
-    }
+//    @RequestMapping(path = "/new_pack", method = RequestMethod.POST)
+//    public String doCreate(@ModelAttribute("number") int number) {
+//        postService.AddPosts(number);
+//        return "redirect:/";
+//    }
 }
